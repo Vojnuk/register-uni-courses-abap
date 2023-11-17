@@ -9,5 +9,6 @@ association to Z_I_DEPARTMENTS_AG as _Department on $projection.DepartmentId = _
     last_name as LastName,
     student_no as StudentNo,
     department_name as DepartmentName,
+    last_changed_at,
     _Department // Make association public
 }

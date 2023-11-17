@@ -12,29 +12,31 @@ define root view entity Z_C_COURSES_AG
         type:     #IDENTIFICATION_REFERENCE,
         label:    'Course' } ]
 
-    @UI: { lineItem: [ {label: 'Course Id'} ],
-           identification:[ { position: 10} ] 
+    @UI: { lineItem: [ { position: 10, label: 'Course Id'} ],
+           identification:[ { position: 10, label: 'Course Id'}] 
          }
     key CourseId,
-    @UI: { lineItem: [ {label: 'DepartmentId'} ],
-           identification:[ { position: 20} ] 
+    @UI: { lineItem: [ { position: 20, label: 'DepartmentId'} ],
+           identification:[ { position: 20, label: 'DepartmentId'} ] 
          }
     DepartmentId,
-    @UI: { lineItem: [ {label: 'Course Name'} ],
-           identification:[ { position: 30} ] 
+    @UI: { lineItem: [ {position: 30, label: 'Course Name'} ],
+           identification:[ { position: 30, label: 'Course Name'} ] 
          }
     CourseName,
-    @UI: { lineItem: [ {label: 'Quota'} ],
-           identification:[ { position: 40} ] 
+    @UI: { lineItem: [ {position: 40, label: 'Quota'} ],
+           identification:[ { position: 40, label: 'Quota'} ] 
          }
     Quota,
-    @UI: { lineItem: [ {label: 'Duration'} ],
-           identification:[ { position: 50} ] 
+    @UI: { lineItem: [ {position: 50, label: 'Duration'} ],
+           identification:[ { position: 50, label: 'Duration'}] 
          }
     Duration,
-    @UI: { lineItem: [ {label: 'DepartmentName'} ],
-           identification:[ { position: 60} ] 
+    @UI: { lineItem: [ {position: 60 ,label: 'Department Name'} ],
+           identification:[ { position: 60, label: 'Department Name'}] 
          }
+    @Consumption.valueHelpDefinition: [{ entity : {name: 'Z_I_DEPARTMENTS_AG', element: 'DepartmentName' } }]
+//    @Search.defaultSearchElement: true
     DepartmentName,
     /* Associations */
     _Department
