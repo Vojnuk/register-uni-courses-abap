@@ -17,8 +17,8 @@ define root view entity Z_C_COURSES_AG
          }
     key CourseId,
     @UI: { lineItem: [ { position: 20, label: 'DepartmentId'} ],
-           identification:[ { position: 20, label: 'DepartmentId'} ] 
-         }
+           identification:[ { position: 20, label: 'DepartmentId'} ] }
+    @Consumption.valueHelpDefinition: [{ entity : {name: 'Z_I_DEPARTMENTS_AG', element: 'DepartmentId' } }]
     DepartmentId,
     @UI: { lineItem: [ {position: 30, label: 'Course Name'} ],
            identification:[ { position: 30, label: 'Course Name'} ] 

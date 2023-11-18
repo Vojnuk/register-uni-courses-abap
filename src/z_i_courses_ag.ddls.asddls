@@ -1,7 +1,7 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'CDS View  - Courses'
 define root view entity Z_I_COURSES_AG as select from zcourses_ag
-association to Z_I_DEPARTMENTS_AG as _Department on $projection.DepartmentId = _Department.DepartmentId
+association [0..*] to Z_I_DEPARTMENTS_AG as _Department on $projection.DepartmentId = _Department.DepartmentId
 {
     key course_id as CourseId,
     department_id as DepartmentId,

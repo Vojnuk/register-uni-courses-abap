@@ -1,0 +1,24 @@
+managed; // implementation in class zbp_i_departments_ag unique;
+//strict ( 2 );
+
+define behavior for Z_I_DEPARTMENTS_AG //alias <alias_name>
+persistent table zdepartments_ag
+lock master
+//authorization master ( instance )
+etag master last_changed_at
+{
+
+  field (readonly, numbering : managed) DepartmentId;
+  field (readonly : update) last_changed_at;
+
+  create;
+  update;
+  delete;
+
+  mapping for zdepartments_ag{
+    DepartmentId = department_id;
+    DepartmentName = department_name;
+    DepartmentHead = department_head;
+    last_changed_at = last_changed_at;
+  }
+}
