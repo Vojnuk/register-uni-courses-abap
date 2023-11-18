@@ -1,0 +1,26 @@
+managed; // implementation in class zbp_i_reg_courses_ag unique;
+//strict ( 2 );
+
+define behavior for Z_I_REG_COURSES_AG //alias <alias_name>
+persistent table zreg_courses_ag
+lock master
+//authorization master ( instance )
+etag master last_changed_at
+{
+  field ( readonly, numbering : managed) RegisteredCourseId;
+  field (readonly : update) last_changed_at;
+
+  create;
+  update;
+  delete;
+
+  mapping for zreg_courses_ag {
+    RegisteredCourseId = registered_course_id;
+    CourseId = course_id;
+    StudentId = student_id;
+    Student = student;
+    CourseName = course_name;
+    DepartmentName = department_name;
+    last_changed_at = last_changed_at;
+  }
+}

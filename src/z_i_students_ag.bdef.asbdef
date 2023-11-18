@@ -1,0 +1,27 @@
+managed; //implementation in class zbp_i_students_ag unique;
+//strict ( 2 );
+
+define behavior for Z_I_STUDENTS_AG //alias <alias_name>
+persistent table zstudents_ag
+lock master
+//authorization master ( instance )
+etag master last_changed_at
+{
+
+  field (readonly, numbering : managed) StudentId;
+  field (readonly:update) last_changed_at;
+
+  create;
+  update;
+  delete;
+
+  mapping for zstudents_ag {
+    StudentId = student_id;
+    DepartmentId = department_id;
+    FirstName = first_name;
+    LastName = last_name;
+    StudentNo = student_no;
+    DepartmentName = department_name;
+    last_changed_at = last_changed_at;
+  }
+}

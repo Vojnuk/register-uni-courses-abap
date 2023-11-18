@@ -6,7 +6,10 @@
 "ZDEPARTMENTS_AG"
 ],
 "ASSOCIATED":
-[],
+[
+"Z_I_COURSES_AG",
+"Z_I_STUDENTS_AG"
+],
 "BASE":
 [],
 "ANNO_REF":
