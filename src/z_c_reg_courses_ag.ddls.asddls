@@ -3,6 +3,8 @@
 
 @UI.headerInfo.typeNamePlural: 'Registered Courses'
 
+@Search.searchable: true    
+
 define root view entity Z_C_REG_COURSES_AG 
     provider contract transactional_query
         as projection on Z_I_REG_COURSES_AG
@@ -28,7 +30,12 @@ define root view entity Z_C_REG_COURSES_AG
     Student,
     @UI: { lineItem: [ {position: 50, label: 'Course Name'} ],
            identification:[ { position: 50, label: 'Course Name'} ] }
-    @Consumption.valueHelpDefinition: [{ entity : {name: 'Z_I_COURSES_AG', element: 'CourseName' } } ]
+//    @Consumption.valueHelpDefinition: [{ entity : {name: 'Z_I_COURSES_AG', element: 'CourseName' } },
+//                                        additionalBinding: [{ localElement: 'CarrierID', element: 'carrier_id' }] ]
+                                         @Consumption.valueHelpDefinition: [{ entity: 
+                {name: 'Z_I_COURSES_AG' , element: 'CourseName' },
+                additionalBinding: [{ localElement: 'DepartmentName', element: 'DepartmentName' }]
+                }]
     @Search.defaultSearchElement: true
     CourseName,
     @UI: { lineItem: [ {position: 50, label: 'Department Name'} ],

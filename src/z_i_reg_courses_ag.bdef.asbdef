@@ -1,4 +1,4 @@
-managed; // implementation in class zbp_i_reg_courses_ag unique;
+managed implementation in class zbp_i_reg_courses_ag unique;
 //strict ( 2 );
 
 define behavior for Z_I_REG_COURSES_AG //alias <alias_name>

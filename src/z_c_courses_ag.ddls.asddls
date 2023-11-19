@@ -3,6 +3,8 @@
 
 @UI.headerInfo.typeNamePlural: 'Courses'
 
+@Search.searchable: true    
+
 define root view entity Z_C_COURSES_AG
     provider contract transactional_query
         as projection on Z_I_COURSES_AG
