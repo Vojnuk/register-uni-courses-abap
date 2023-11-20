@@ -3,5 +3,5 @@ define service ZUI_REGISTER_COURSE_AG {
   expose Z_C_COURSES_AG;
   expose Z_C_DEPARTMENTS_AG;
   expose Z_C_STUDENTS_AG;
-  expose Z_C_REG_COURSES_AG;
+  expose Z_C_REG_COURSES_AG as RegisterCourses;
 }

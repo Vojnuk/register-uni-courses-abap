@@ -3,15 +3,15 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <VSEOCLASS>
-    <CLSNAME>ZBP_I_REG_COURSES_AG</CLSNAME>
+    <CLSNAME>ZBP_I_STUDENTS_AG</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>Behavior Implementation for Z_I_REG_COURSES_AG</DESCRIPT>
+    <DESCRIPT>Behavior Implementation for Z_I_STUDENTS_AG</DESCRIPT>
     <CATEGORY>06</CATEGORY>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
-    <CLSDEFINT>Z_I_REG_COURSES_AG</CLSDEFINT>
+    <CLSDEFINT>Z_I_STUDENTS_AG</CLSDEFINT>
    </VSEOCLASS>
   </asx:values>
  </asx:abap>

@@ -17,5 +17,7 @@ define root view entity Z_C_DEPARTMENTS_AG
     DepartmentName,
     @UI: { lineItem: [ { position: 30, label: 'Department Head'} ],
     identification:[ { position: 30, label: 'Department Head'}] }
-    DepartmentHead
+    DepartmentHead,
+    @UI.hidden: true
+    last_changed_at
 }

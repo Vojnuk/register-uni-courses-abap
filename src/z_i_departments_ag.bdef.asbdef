@@ -10,6 +10,7 @@ etag master last_changed_at
 
   field (readonly, numbering : managed) DepartmentId;
   field (readonly : update) last_changed_at;
+  field (mandatory) DepartmentHead, DepartmentName;
 
   create;
   update;
