@@ -31,7 +31,8 @@ define root view entity Z_C_REG_COURSES_AG
            identification:[ { position: 40, label: 'Student'}] }   
     @Consumption.valueHelpDefinition: [{ 
         entity : {name: 'Z_I_STUDENTS_AG', element: 'LastName' },
-        additionalBinding: [{ localElement: 'StudentId', element: 'StudentId' }] 
+        additionalBinding: [{ localElement: 'StudentId', element: 'StudentId' },
+                            { localElement: 'DepartmentName', element: 'DepartmentName' }] 
         }]
     @Search.defaultSearchElement: true  
     Student,
@@ -51,6 +52,11 @@ define root view entity Z_C_REG_COURSES_AG
     CourseName,
     @UI.hidden: true
     last_changed_at,
+    @UI.hidden: true
+    CourseDepartment,
+    @UI.hidden: true
+    StudentDepartment,
+    
 
     /* Associations */
     _Course,

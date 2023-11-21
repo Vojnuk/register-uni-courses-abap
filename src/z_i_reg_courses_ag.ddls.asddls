@@ -11,6 +11,8 @@ association to Z_I_STUDENTS_AG as _Student on $projection.StudentId = _Student.S
     course_name as CourseName,
     department_name as DepartmentName,
     last_changed_at,
+    student_department as StudentDepartment,
+    course_department  as CourseDepartment ,
     _Course,
     _Student
 }
