@@ -40,26 +40,20 @@ CLASS lhc_Z_I_COURSES_AG IMPLEMENTATION.
 
 
   METHOD checkCourseDurationLength.
-*      READ ENTITIES OF z_i_courses_ag IN LOCAL MODE
-*      ENTITY Course
-*      FIELDS ( Duration )
-*      WITH CORRESPONDING #( keys )
-*      RESULT DATA(lt_duration_data)
-*      FAILED DATA(ls_failed)
-*      REPORTED DATA(ls_reported).
-*
-*    LOOP AT lt_duration_data INTO DATA(ls_duration).
-*      SELECT SINGLE FROM z_i_courses_ag
-*        FIELDS Duration
-*        WHERE Duration > 4
-*        INTO @DATA(ld_Duration).
-*      IF sy-subrc = 0.
-*
-*        INSERT VALUE #(
-*           %msg = new_message_with_text( text = 'Course cannot be longer than 4 semesters.' )
-*           %element-Duration = if_abap_behv=>mk-on
-*        ) INTO TABLE reported-course.
-*      ENDIF.
-*    ENDLOOP.
+      READ ENTITIES OF z_i_courses_ag IN LOCAL MODE
+        ENTITY Course
+            FIELDS ( Duration )
+            WITH CORRESPONDING #( keys )
+        RESULT DATA(courses).
+
+    LOOP AT courses INTO DATA(course).
+        IF course-Duration > 4.
+
+        INSERT VALUE #(
+           %msg = new_message_with_text( text = 'Course cannot be longer than 4 semesters.' )
+           %element-Duration = if_abap_behv=>mk-on
+        ) INTO TABLE reported-course.
+      ENDIF.
+    ENDLOOP.
   ENDMETHOD.
 ENDCLASS.
