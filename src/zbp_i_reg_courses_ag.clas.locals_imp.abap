@@ -4,6 +4,10 @@ CLASS lhc_z_i_reg_courses_ag DEFINITION INHERITING FROM cl_abap_behavior_handler
 
     METHODS checkUniquenessRegisterCourse FOR VALIDATE ON SAVE
       IMPORTING keys FOR RegisteredCourse~checkUniquenessRegisterCourse.
+    METHODS checkStudentQuotaForCourse FOR VALIDATE ON SAVE
+      IMPORTING keys FOR RegisteredCourse~checkStudentQuotaForCourse.
+
+
 
 
 ENDCLASS.
@@ -13,7 +17,7 @@ CLASS lhc_z_i_reg_courses_ag IMPLEMENTATION.
   METHOD checkUniquenessRegisterCourse.
 
 
-        READ ENTITIES OF z_i_reg_courses_ag IN LOCAL MODE
+    READ ENTITIES OF z_i_reg_courses_ag IN LOCAL MODE
       ENTITY RegisteredCourse
       FIELDS ( Student CourseName )
       WITH CORRESPONDING #( keys )
@@ -37,6 +41,33 @@ CLASS lhc_z_i_reg_courses_ag IMPLEMENTATION.
     ENDLOOP.
   ENDMETHOD.
 
+
+
+
+
+  METHOD checkStudentQuotaForCourse.
+      READ ENTITIES OF z_i_reg_courses_ag IN LOCAL MODE
+        ENTITY RegisteredCourse
+            FIELDS ( CourseName )
+            WITH CORRESPONDING #( keys )
+        RESULT DATA(regCourses).
+        LOOP AT regCourses INTO DATA(course).
+        ENDLOOP.
+
+    data : coursesCount type i.
+    coursesCount = lines( regCourses ).
+
+      SELECT SINGLE FROM Z_I_COURSES_AG FIELDS ( Quota ) WHERE CourseName = @course-CourseName INTO @DATA(maxStudentQuotaForCourse).
+
+      IF maxStudentQuotaForCourse > coursesCount.
+        INSERT VALUE #(
+           %msg = new_message_with_text( text = |Course is full. Student quota ( { maxstudentQuotaForCourse } ).| )
+            %element-CourseName = if_abap_behv=>mk-on
+        ) INTO TABLE reported-registeredCourse.
+      ENDIF.
+
+
+  ENDMETHOD.
 
 ENDCLASS.
 

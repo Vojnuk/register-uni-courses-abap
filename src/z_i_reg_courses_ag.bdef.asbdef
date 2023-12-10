@@ -27,4 +27,7 @@ etag master last_changed_at
   }
 
     validation checkUniquenessRegisterCourse on save { create; field CourseName, Student; }
+    validation checkStudentQuotaForCourse on save { create; }
+
+
 }
