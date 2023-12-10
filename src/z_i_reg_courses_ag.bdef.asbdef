@@ -9,6 +9,7 @@ etag master last_changed_at
 {
   field ( readonly, numbering : managed) RegisteredCourseId;
   field (readonly : update) last_changed_at;
+  field (mandatory) Student, CourseName, DepartmentName;
 
   create;
   update;
