@@ -52,13 +52,13 @@ define root view entity Z_C_REG_COURSES_AG
     CourseName,
     @UI.hidden: true
     last_changed_at,
-//    @UI.hidden: true
+    @UI.hidden: true
     @UI: { lineItem: [ {position: 60, label: 'Course Department'} ],
            identification:[ { position: 60, label: 'Course Department'} ] }
     _Course.DepartmentName as CourseDepartment,
         @UI: { lineItem: [ {position: 70, label: 'Student Department'} ],
            identification:[ { position: 70, label: 'Student Department'} ] }
-//    @UI.hidden: true
+    @UI.hidden: true
     _Student.DepartmentName as StudentDepartment,
     
 
