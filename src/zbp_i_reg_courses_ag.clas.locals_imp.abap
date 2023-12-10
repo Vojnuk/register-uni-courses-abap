@@ -59,9 +59,9 @@ CLASS lhc_z_i_reg_courses_ag IMPLEMENTATION.
 
       SELECT SINGLE FROM Z_I_COURSES_AG FIELDS ( Quota ) WHERE CourseName = @course-CourseName INTO @DATA(maxStudentQuotaForCourse).
 
-      IF maxStudentQuotaForCourse > coursesCount.
+      IF maxStudentQuotaForCourse <= coursesCount.
         INSERT VALUE #(
-           %msg = new_message_with_text( text = |Course is full. Student quota ( { maxstudentQuotaForCourse } ).| )
+           %msg = new_message_with_text( text = |Course is full. Student quota ( { maxStudentQuotaForCourse } ).| )
             %element-CourseName = if_abap_behv=>mk-on
         ) INTO TABLE reported-registeredCourse.
       ENDIF.
