@@ -22,7 +22,7 @@ CLASS lhc_Z_I_COURSES_AG IMPLEMENTATION.
     LOOP AT lt_course_data INTO DATA(ls_course).
       SELECT SINGLE FROM z_i_courses_ag
         FIELDS CourseName
-        WHERE CourseName =  @ls_course-CourseName
+        WHERE CourseName =  @ls_course-CourseName AND DepartmentName = @ls_course-DepartmentName
         INTO @DATA(ld_found_CourseName).
       IF sy-subrc = 0.
 
@@ -33,11 +33,6 @@ CLASS lhc_Z_I_COURSES_AG IMPLEMENTATION.
       ENDIF.
     ENDLOOP.
   ENDMETHOD.
-
-
-
-
-
 
   METHOD checkCourseDurationLength.
       READ ENTITIES OF z_i_courses_ag IN LOCAL MODE
@@ -56,4 +51,5 @@ CLASS lhc_Z_I_COURSES_AG IMPLEMENTATION.
       ENDIF.
     ENDLOOP.
   ENDMETHOD.
+
 ENDCLASS.
