@@ -20,9 +20,13 @@ CLASS lhc_Z_I_COURSES_AG IMPLEMENTATION.
       REPORTED DATA(ls_reported).
 
     LOOP AT lt_course_data INTO DATA(ls_course).
+
+        TRANSLATE ls_course-CourseName to LOWER CASE.
+        TRANSLATE ls_course-CourseName to LOWER CASE.
+
       SELECT SINGLE FROM z_i_courses_ag
         FIELDS CourseName
-        WHERE CourseName =  @ls_course-CourseName AND DepartmentName = @ls_course-DepartmentName
+        WHERE  CourseName  =  @ls_course-CourseName AND DepartmentName =  @ls_course-DepartmentName
         INTO @DATA(ld_found_CourseName).
       IF sy-subrc = 0.
 
